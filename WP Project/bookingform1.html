@@ -1,0 +1,339 @@
+<html>
+  <head>
+    <title>Raahi-Booking Confirmation</title>
+    <meta name="viewport"content="width=device-width,initial scale=1.0"/>
+    <link rel="icon" type="image/png" href="weblog.png">
+    <style>
+      *{
+        margin:0;
+        padding:0;
+        font-family: Verdana,Arial,Helvetica;
+      }
+      header img{
+        height: 13%;
+      }
+      nav{
+        background-color:#C70008; 
+        padding:5px;
+      }
+      nav ul li{
+        display:inline;
+        font-size:20px;
+        padding-right:7.5%;
+        padding-left: 7.5%  
+      }
+      nav ul li a{
+        text-decoration: none;
+        color:rgb(240,240,240);
+      }
+      nav ul li a:hover{
+        font-weight: bold;
+        color:white;
+      }
+  
+     
+      .main{
+  margin-left: 25%;
+  margin-right: 25%;
+  width: 40%;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: white;
+  padding: 20px;
+}
+#lastname{
+  padding-left: 114px;
+}
+.required{
+  color: red;
+}
+.line{
+  margin-bottom: 10px;
+  background-color: red;
+}
+td{
+  margin: 0px;
+  padding-right: 20px;
+}
+.l1{
+  height: 20px;
+}
+#total{
+  padding: 5px;
+  
+  border: 2px solid red;
+  border-radius: 10px;
+  background-color: orange;
+}
+input{
+  border-radius: 10px;
+  border: 2px solid green;
+  padding: 3px;
+}
+
+      .button{
+        background-color: orange;
+        padding: 5px;
+        cursor: pointer;
+        float: right;
+        border-color: unset;
+        font-size: 20px;
+        border-radius: 20px;
+        font-family: monospace;
+            }
+            .button:hover{
+              background-color: red;
+            }
+      #footer{
+        background-color: rgb(50,50,50);
+        padding-left: 5px;
+        padding-top: 10px;
+
+                height:22%;
+      }
+      .logo{
+        display: inline;
+        padding:15px;
+        padding-top: 25px;
+        padding-bottom: 0px;
+        padding-right: 0px;
+        height:30px;
+      }
+       #leftfoot{
+         float: left;
+         width:50%;
+         background-color: rgb(50,50,50);
+        color: white;
+        padding-bottom: 0px;
+      }
+      #rightfoot{
+        padding-top: 25px;
+        
+        float:right;
+        width:50%;
+        background-color: rgb(50,50,50);
+        color: white;
+      }
+      section{
+        background-image: url("hotel7.jpeg");
+
+      }
+      @media(max-width: 685px){
+        nav{ 
+        padding:5px;
+        font-size: 12px;
+        }
+        nav ul li{
+          display:inline;
+          font-size:15px;
+          padding-right:4.5%;
+          padding-left: 4.5%;
+          }
+        header img{
+          height: 60px;
+      } 
+      .main{
+        margin-left: 0%;
+        margin-right: 0%;
+        width:80%;
+      }
+      #footer{
+        height:25%;
+      }
+      }
+      @media(max-width: 450px){
+        nav{ 
+        padding:5px;
+        font-size: 12px;
+        }
+        nav ul li{
+          display:inline;
+          font-size:15px;
+          padding-right:3.5%;
+          padding-left: 3.5%;
+          } 
+        header img{
+        height: 60px;
+      }
+      .main{
+         width:80%;
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+      .button{
+        font-size: 15px;
+        float: none;
+      }
+      }
+       
+   </style>
+    <script type="text/javascript">
+      var costperroom=5744;
+      
+      function noa(){
+       var NOR=1;
+       var NOA = document.getElementById("NOA").value; 
+       
+       if(NOA>2){
+        alert("To book more than 2 people you need to take more than 1 room");
+         document.getElementById("NORR").style.display="block";
+        }
+        document.getElementById("total").innerHTML=NOR*costperroom;
+      }
+      function RoomLimit(){
+       var NOR = document.getElementById("NOR").value;
+       var cid = new Date(document.getElementById("cid").value);
+      var cod = new Date(document.getElementById("cod").value);
+        document.getElementById("total").innerHTML=parseInt((cod-cid)/(24*3600*1000))*NOR*costperroom;   
+      }
+      
+          
+      function date(){
+       var NOR = document.getElementById("NOR").value;
+       var cid = new Date(document.getElementById("cid").value);
+       var cod = new Date(document.getElementById("cod").value);
+        document.getElementById("total").innerHTML=parseInt((cod-cid)/(24*3600*1000))*NOR*costperroom;   
+      }
+    </script>
+
+  </head>
+  <body>
+
+    <header>
+      <center>
+        <img src="weblogo.jpeg"alt="Empty">
+      </center>
+    </header>
+    <nav>
+      <center>
+      <ul>
+      <li><a href="home.html">Home</a></li>
+        <li><a href="offers.html">Offers</a></li>
+        <li><a href="contactus.html">Contact us</a></li>
+        <li><a href="aboutus.html">About us</a></li>
+      </ul>
+      </center>
+    </nav>
+    <section>
+       <center>
+      <br>
+        <p style="color: rgb(82, 16, 16);font-size: 30px;">Booking Details</p> <br>
+       <div class="main">
+      <table>
+        <form name="myForm" action="paymentform.html" method="post">
+         
+          <tr>
+            <td><label for="name">Name <span class="required">*</span></label></td>
+            <td><input id="name" type="text" placeholder="First Name" name="Firstname" required><br><br>
+            <input type="text" placeholder="Last Name"name="Lastname" required></td>
+          </tr>
+           
+          <tr class="l1">
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td><label for="email">E-mail <span class="required">*</span></label></td>
+            <td><input type="email" name="email" id="email" placeholder="myname@example.com" required></td>
+          </tr>
+          <tr class="l1">
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><label for="mobile">Mobile Number <span class="required">*</span></label> </td>
+            <td><input type="tel" name="mobile" id="mobile" pattern="[0-9]{10}" required> </td>
+          </tr>
+          <tr class="l1">
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><label for="room_type">Room Type</label></td>
+            <td><select id="room_type" name="room_type">
+              <option value=""></option>
+              <option value="Standard Room(1 to 2 People)">Standard Room</option>
+              <option value="Family Room(1 to 4 people)">Family Room</option>
+              <option value="Private Room">Private Room</option>
+              <option value="Male Dorm Room">Male Dorm Room</option>
+              <option value="Female Dorm Room">Female Dorm Room</option>
+            </select></td>
+          </tr>
+          <tr class="l1">
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><label for="NOA">Number Of Adults <span class="required">*</span></label></td>
+            <td><select id="NOA" name="NOA" onchange="noa()" required>
+              <option>Select</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select> </td>
+          </tr>
+           <tr class="l1">
+            <td></td>
+            <td></td>
+          </tr>
+            <tr id="NORR" style="display:none">
+            <td><label for="NOR">Number Of Rooms</label> <span class="required">*</span> </td>
+            <td><select id="NOR" name="NOR" onchange="RoomLimit()" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              
+            </select>
+             </td>
+          <tr>
+            <td><label for="NOC">Number Of Children <span class="required">*</span></label></td>
+            <td><input type="number" name="NOC" id="NOC" value="0" min="0" max="2" required></td>
+          </tr>
+          <tr class="l1">
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><label for="CDT">Check-In Date <span class="required">*</span></label></td>
+            <td><input type="date" name="cid" id="cid" required></td>
+          <tr class="l1">
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><label for="cd">Check-Out Date <span class="required">*</span></label></td>
+            <td><input type="date" name="cod" id="cod" onchange="date()" required></td>
+          </tr>
+            <tr class="l1">
+            <td></td>
+            <td></td>
+          </tr>
+         
+        
+            <td>₹&nbsp;<span id="total">0</span> </td>
+            <td><input class="button" type="submit" name="submit" value="Proceed to payment"></td>
+          </tr>
+           
+        </form>
+      </table>
+    </div>
+    <br>
+    </center>
+    </section>
+    <div id="footer">
+        
+              <div id="leftfoot">
+        <p style="font-size: 20px"> Follow us on</p>
+        <img src="fb.jpeg"class="logo"alt="Fb logo">
+        <img src="insta.jpeg"class="logo"alt="Insta">
+        <img src="twitter.jpeg"class="logo"alt="Twitter">
+      </div> 
+      <div id="rightfoot">
+      <p align="right"><b>COPYRIGHT &copy 2020, RAAHI PVT.LTD.</b><br>Surat, Gujarat, India.</p>
+       </div>
+      
+    </div>
+  </body>
+
+</html>

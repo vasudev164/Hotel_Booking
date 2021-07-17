@@ -1,0 +1,442 @@
+<html>
+	<head>
+		<title>Raahi-Courtyard by Marriott</title>
+		<meta name="viewport"content="width=device-width,initial scale=1.0"/>
+		<link rel="icon" type="image/png" href="weblog.png">
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				font-family: Verdana,Arial,Helvetica;
+				box-sizing: border-box;
+			}
+			header img{
+				height: 13%;
+			}
+			nav{
+				background-color:#C70008; 
+				padding:5px;
+			}
+			nav ul li{
+				display:inline;
+				font-size:20px;
+				padding-right:7.5%;
+				padding-left: 7.5%  
+			}
+			nav ul li a{
+				text-decoration: none;
+				color:rgb(240,240,240);
+			}
+			nav ul li a:hover{
+				font-weight: bold;
+				
+			}
+
+		#main{
+				margin-left: 10%;
+				margin-right: 10%;
+				background-color: white;
+				height:280%;
+				padding-left: 40px;
+             padding-right: 40px;
+				
+			}
+			.sticky{
+            
+				top:0px;
+				
+				position: sticky;
+				float: left;
+			    width:100%;
+              background-color: bisque; 
+			
+              padding-top: 5px;
+              padding-bottom: 5px;
+
+			}
+			.container {
+		     		
+             position: relative;
+             width:100%;
+             
+            }
+            .mySlides {
+            display: none;
+            }
+           .cursor {
+            cursor: pointer;
+            }
+           .prev,
+           .next {
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+			background-color: rgb(56, 56, 56);
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+           
+            }
+            .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+            }
+           .prev:hover,
+           .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            }
+			.numbertext {
+			  color: #f2f2f2;
+			  font-size: 12px;
+			  padding: 8px 12px;
+			  position: absolute;
+			  top: 0;
+			}
+			.caption-container {
+			  text-align: center;
+
+			  background-color: #222;
+			  padding-top:10px;
+			  padding-bottom: 10px;
+			  color: white;
+			}
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+             .column {
+             float: left;
+             width: 16.66%;
+             }
+             .demo {
+             opacity: 0.6;
+             }
+            .active,
+            .demo:hover {
+             opacity: 1;
+             }
+             #amenities{
+                
+             	float:left;
+             	width:50%;
+             	color: grey;
+             }
+             #features{
+             	float:right;
+             	width:50%;
+             	color: grey;
+             }
+			.button{
+				background-color: orange;
+				padding-left: 5px;
+				padding-right: 5px;
+				font-size: 20px;
+				border-radius: 20px;
+				font-family: monospace;
+            }
+            .button:hover{
+            	background-color: red;
+            }
+           
+			
+			#footer{
+
+				background-color: rgb(50,50,50);
+				padding-left: 5px;
+				padding-top: 10px;
+
+                height:22%;
+			}
+			.logo{
+				display: inline;
+				padding:15px;
+				padding-top: 25px;
+				padding-bottom: 0px;
+				padding-right: 0px;
+				height:55px;
+			}
+			 #leftfoot{
+			   float: left;
+			   width:50%;
+			   background-color: rgb(50,50,50);
+				color: white;
+				padding-bottom: 0px;
+			}
+			#rightfoot{
+				padding-top: 25px;
+				
+				float:right;
+				width:50%;
+				background-color: rgb(50,50,50);
+				color: white;
+			}
+			section{
+				background-image: url("hotel7.jpeg");
+
+			}
+			#main{
+             margin-left: 10%;
+             margin-right: 10%;
+             background-color: white;
+            height: 280%;
+			}
+			@media(max-width: 685px){
+				nav{ 
+				padding:5px;
+				font-size: 12px;
+				}
+				nav ul li{
+					display:inline;
+					font-size:15px;
+					padding-right:4.5%;
+					padding-left: 4.5%;
+					}
+				header img{
+					height: 60px;
+			} 
+			  #main{
+			  	height:350%;
+			  }
+			   #footer{
+			   	height:27%;
+			   }
+			}
+			@media(max-width: 450px){
+				nav{ 
+				padding:5px;
+				font-size: 12px;
+				}
+				nav ul li{
+					display:inline;
+					font-size:15px;
+					padding-right:3.5%;
+					padding-left: 3.5%;
+					} 
+				header img{
+				height: 60px;
+			}
+               #main{
+			  	height:330%;
+			  	margin-left: 5%;
+				margin-right: 5%;
+			  }
+			   #footer{
+			   	height:20%;
+			   }
+		   }
+		</style>
+		<script>
+			var slideIndex = 1;
+			showSlides(slideIndex);
+			function plusSlides(n) {
+			showSlides(slideIndex += n);
+			}
+			function currentSlide(n) {
+			showSlides(slideIndex = n);
+			}
+			function showSlides(n) {
+			var i;
+			var slides = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("demo");
+			var captionText = document.getElementById("caption");
+			if (n > slides.length) {slideIndex = 1}
+			if (n < 1) {slideIndex = slides.length}
+			for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";
+			}
+			for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+			}
+			slides[slideIndex-1].style.display = "block";
+			dots[slideIndex-1].className += " active";
+			captionText.innerHTML = dots[slideIndex-1].alt;
+			}
+			</script>
+	</head>
+	<body onload="showSlides(slideIndex);">
+
+		<header>
+			<center>
+				<img src="weblogo.jpeg"alt="Empty">
+			</center>
+		</header>
+		<nav>
+			<center>
+			<ul>
+				<li><a href="home.html">Home</a></li>
+				<li><a href="offers.html">Offers</a></li>
+				<li><a href="contactus.html">Contact us</a></li>
+				<li><a href="aboutus.html">About us</a></li>
+			</ul>
+			</center>
+		</nav>
+		<section>
+			
+		
+			<div id="main">
+				<div class="sticky">
+					<div style="float: left; width:50%;">
+						<p style="color:rgb(71, 71, 71); font-size: 18px; padding-top: 10px;">&nbsp;Courtyard by Marriott |</p>
+					</div>
+					<div style="float: right;width:50%;text-align: right;">
+
+						<b>Price: ₹5744&nbsp;</b>  <form target="_blank" action="bookingform1.html"> <input type="submit" value="Book now" class="button cursor">&nbsp;</form>
+					</div>
+				</div>
+			
+				<br><br><br>
+				<p style="font-size: 35px; text-align: center;"><b><i>Courtyard by Marriott</b></i></p>
+				<br><br>
+				<div class="container">
+<div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+      <img src="outdoor1.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+      <img src="lobby1.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+      <img src="rooms1.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+      <img src="bathroom1.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+      <img src="pool1.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+      <img src="restaurant1.jpg" style="width:100%">
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="outdoor1.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Outdoors">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="lobby1.jpg" style="width:100%" onclick="currentSlide(2)" alt="The Lobby">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="rooms1.jpg" style="width:100%" onclick="currentSlide(3)" alt="Hotel Room">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="bathroom1.jpg" style="width:100%" onclick="currentSlide(4)" alt="Suite Bathroom">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="pool1.jpg" style="width:100%" onclick="currentSlide(5)" alt="Pool">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="restaurant1.jpg" style="width:100%" onclick="currentSlide(6)" alt="Restaurant">
+    </div>
+  </div>
+</div><br>
+        <div id="amenities">
+        	<p style="color: black; font-size: 20px;">Amenities:</p><br>
+        	<ul style="padding-left: 15px;">
+        	<li>Free parking</li>
+		    <li>Fitness Centre</li>
+			<li>Bar / lounge</li>
+			<li>Children Activities</li>
+			<li>Airport transportation</li>
+			<li>Wifi</li>
+			<li>Pools</li>
+			<li>Restaurant</li>
+			<li>Business Centre with Internet Access</li>
+			<li>Conference facilities</li>
+			<li>Banquet room</li>
+			<li>Meeting rooms</li>
+			<li>BBQ facilities</li>
+			<li>Baggage storage</li>
+			<li>Concierge</li>
+			<li>Currency exchange</li>
+			<li>Newspaper</li>
+			<li>Doorperson</li>
+			<li>24-hour check-in</li>
+		    <li>Laundry service</li>
+		    </ul><br>
+		</div>
+		<div id="features">
+			<p style="color: black; font-size: 20px;">Room Features:</p><br>
+			<ul style="padding-left: 15px;">
+		   <li>Blackout curtains</li>
+			<li>Soundproof rooms</li>
+			<li>Air conditioning</li>
+			<li>Housekeeping</li>
+			<li>Interconnected rooms available</li>
+			<li>Coffee / tea maker</li>
+			<li>Flatscreen TV</li>
+			<li>Room service</li>
+			<li>Safe</li>
+			<li>Telephone</li>
+			<li>Bottled water</li>
+			<li>Clothes rack</li>
+			<li>Iron</li>
+			<li>Wake-up service/alarm clock</li>
+			<li>Minibar</li>
+			<li>Complimentary toiletries</li>
+			
+            </ul><br><br>
+        </div>
+          <div style="width:100%;float:left;">
+          <p style="color: black; font-size: 20px;">Hotel Address:</p>
+          <p style="color: grey">Earthspace, Hazira Road Opposite ONGC, Surat 394510 India.<br>7 km away from the airport</p><br>
+
+
+           <p style="color: black; font-size: 20px;">Hotel Class:</p>
+           <p style="color: grey"><b>4 STAR</b></p><br><br>
+          	</div>
+          	<div>
+          		<div style="float:left; width:30%;">
+          			 <h4>Price:</h4>
+				    <h1><b>₹5744</b></h1><h6>&nbsp;<i>per night</i></h6>
+				</div>
+				
+				<div style="float:right; width:70%">
+					<br>
+					<center><form target="_blank" action="bookingform1.html"><input type="submit" value="Book now" class="button cursor"></form></center>
+			   </div>
+			  </div>
+			
+
+			  
+		 </div>
+		
+		           
+		</section>
+		<div id="footer">
+			 
+              <div id="leftfoot">
+				<p style="font-size: 20px; padding-left: 5px;"> Follow us on</p>
+				<img src="fb.jpeg"class="logo"alt="Fb logo">
+				<img src="insta.jpeg"class="logo"alt="Insta">
+				<img src="twitter.jpeg"class="logo"alt="Twitter">
+			</div> 
+			<div id="rightfoot">
+			<p align="right"><b>COPYRIGHT &copy 2020, RAAHI PVT.LTD.</b><br>Surat, Gujarat, India.</p>
+			 </div>
+			
+		</div>
+	</body>
+
+</html>
